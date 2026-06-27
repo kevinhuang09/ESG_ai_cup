@@ -107,16 +107,6 @@ opencc-python-reimplemented==1.1.6   # 選用，預設關閉
 | 三塔② tower | `intfloat/multilingual-e5-large` |
 | 三塔③ tower | `shibing624/text2vec-base-chinese` |
 
-```bash
-# 範例：預先下載
-huggingface-cli download hfl/chinese-roberta-wwm-ext-large
-huggingface-cli download BAAI/bge-large-zh-v1.5
-# ...其餘四個同理
-
-# 中國大陸 / 連線受限環境可改用鏡像：
-export HF_ENDPOINT=https://hf-mirror.com
-```
-
 ---
 
 ## 三、目錄結構
