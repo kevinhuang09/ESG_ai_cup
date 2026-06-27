@@ -114,25 +114,16 @@ opencc-python-reimplemented==1.1.6   # 選用，預設關閉
 ```
 project/
 ├── README.md
-├── requirements.txt
-├── data/
-│   ├── vpesg_4k_train_1000.csv     # 訓練集
-│   ├── vpesg4k_val_1000.csv        # 驗證集
-│   └── vpesg4k_test_2000.csv       # 測試集（id 12001-14000）
-├── preprocess/
-│   ├── convert_year.py             # 時間特徵前處理進入點
-│   └── year_parse.py               # inject_features() 特徵注入實作
-├── train/
-│   ├── train_rbtl.py               # 主力① RoBERTa（4 seeds）
-│   ├── train_bge.py                # 主力② BGE（4 configs）
-│   ├── train_els.py                # 專家① Erlangshen
-│   └── train_tower.py              # 專家② 三塔嵌入 + 分類器（含軟偽標籤）
-├── out_cv_rbtL_tf/  out_cv_rbtL_tf_s1/  _s2/  _s3/   # rbtl 4 seeds 輸出
-├── out_bgeL_ep8_lr1e5/  ..._ep10_lr1e5/  ..._ep8_lr2e5/  ..._ep10_lr2e5/  # bge 4 configs
-├── out_cv_els_tf/                  # els 輸出
-├── out_cv10_soft_pseudo_labeling/  # tower 輸出
-├── final_ense.py                   # 最終動態信心救場集成
-└── submission.csv                  # 最終提交檔
+├── bge_ense.py                 # 主力② BGE（4 configs）集成
+├── convert_year.py             # 時間特徵前處理進入點
+├── els_ense.py                 # 專家① Erlangshen 集成
+├── final_ense.py               # 最終動態信心救場集成
+├── rbtl_ense.py                # 主力① RoBERTa（4 seeds）集成
+├── run_all_bge.py              # 自動化執行 BGE 4 configs 訓練與預測腳本
+├── run_all_els.py              # 自動化執行 Erlangshen 訓練與預測腳本
+├── run_all_rbtl.py             # 自動化執行 RoBERTa 4 seeds 訓練與預測腳本
+├── run_all_tower.py            # 自動化執行 三塔嵌入 + 分類器（含軟偽標籤）腳本
+└── train.py                    # 核心底層訓練邏輯實作（供 run_all_*.py 調用）
 ```
 
 ---
